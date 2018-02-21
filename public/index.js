@@ -24,12 +24,12 @@ const requestComplete = function () {
 }
 
 const populateList = function(countries){
-  const ul = document.getElementById("country-list")
+  const select = document.getElementById("country-select")
 
   countries.forEach(function(country){
-    const li = document.createElement("li");
-    li.innerText = country.name;
-    ul.appendChild(li);
+    const option = document.createElement("option");
+    option.innerText = country.name;
+    select.appendChild(option);
   })
 }
 
