@@ -42,9 +42,17 @@ const populateList = function(countries){
     const countryCapital = document.getElementById('country-capital')
     countryCapital.innerText = selectedCountry.capital
 
-
+    save(selectedCountry);
   }
   select.addEventListener('change', getCountrySelectClicked);
+}
+
+const save = function (selectedCountry) {
+  const oldCountry = localStorage.getItem('country-info') || "[]"
+  const savedArray = JSON.parse(oldCountry)
+  savedArray.push(selectedCountry)
+  const newCountry = JSON.stringify(savedArray);
+  localStorage.setItem('country-info', newCountry);
 }
 
 
